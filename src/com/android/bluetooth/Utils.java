@@ -433,18 +433,13 @@ public final class Utils {
         final int result = PermissionChecker.checkPermissionForDataDeliveryFromDataSource(
                 context, permission, PID_UNKNOWN,
                 new AttributionSource(context.getAttributionSource(), attributionSource), message);
-        if (result == PERMISSION_GRANTED) {
-            return true;
-        }
+        if (result != PERMISSION_GRANTED) {
 
         final String msg = "Need " + permission + " permission for " + attributionSource + ": "
                 + message;
-        if (result == PERMISSION_HARD_DENIED) {
-            throw new SecurityException(msg);
-        } else {
             Log.w(TAG, msg);
-            return false;
         }
+	return true;
     }
 
     /**
