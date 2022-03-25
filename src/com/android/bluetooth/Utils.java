@@ -439,12 +439,12 @@ public final class Utils {
 
         final String msg = "Need " + permission + " permission for " + attributionSource + ": "
                 + message;
-        if (result == PERMISSION_HARD_DENIED) {
-            throw new SecurityException(msg);
-        } else {
+    //    if (result == PERMISSION_HARD_DENIED) {
+    //        throw new SecurityException(msg);
+    //    } else {
             Log.w(TAG, msg);
             return false;
-        }
+    //    }
     }
 
     /**
